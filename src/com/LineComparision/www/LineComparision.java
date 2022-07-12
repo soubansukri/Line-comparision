@@ -1,23 +1,54 @@
 package com.LineComparision.www;
 
+import java.util.Scanner;
+
 public class LineComparision {
+	public int x1, x2, y1, y2;
+
+	public void Input() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println(" Enter x1 and y1 ");
+		x1 = scanner.nextInt();
+		y1 = scanner.nextInt();
+		System.out.println(" the valve of (x1,y1) : " + x1 + " , " + y1);
+
+	}
+
+	public double formula() {
+		double linelength = Math.sqrt(Math.pow(x2 - x1, 2) - Math.pow(y2 - y1, 2));
+		return linelength;
+
+	}
+
+	public static void condition(double linelength1, double linelength2) {
+		if (linelength1 > linelength2) {
+			System.out.println(" line 1 is greater than line 2");
+		}
+
+		else if (linelength1 < linelength2) {
+			System.out.println(" line 1 is lesser than line 2 ");
+
+		}
+
+		else {
+			System.out.println(" both the lines are equal ");
+		}
+
+	}
+
 	public static void main(String[] args) {
+		LineComparision line1 = new LineComparision();
+		line1.Input();
+		double linelength1 = line1.formula();
+		System.out.println(" length of the line 1 = " + linelength1);
+		LineComparision line2 = new LineComparision();
+		line2.Input();
+		double linelength2 = line2.formula();
+		System.out.println(" length of the line 2 = " + linelength2);
 
-		int x1 = 50, y1 = 100;
-		int x2 = 200, y2 = 400;
-		int x3 = 50, y3 = 100;
-		int x4 = 200, y4 = 400;
-		System.out.println("Welcome to Line Comparison Computation Program");
-		double length1 = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-		System.out.println("Length of line1: " + length1);
-		double length2 = Math.sqrt(Math.pow(x3 - x4, 2) + Math.pow(y3 - y4, 2));
-		System.out.println("Length of line2: " + length2);
+		System.out.println(" length of the line 1 = " + linelength1);
+		System.out.println(" length of the line 2 = " + linelength2);
+		condition(linelength1, linelength2);
 
-		if (length1 == length2)
-			System.out.println("Both lines are same..");
-		else if (length1 > length2)
-			System.out.println("line 1 is greater than line2..");
-		else
-			System.out.println("line 2 is greater than line1..");
 	}
 }
